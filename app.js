@@ -2,7 +2,7 @@
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { View, Text, Button, ScrollView, TouchableOpacity, Image, TextInput, Alert, Linking } from "react-native";
+import { View, Text, Button, ScrollView, TouchableOpacity, Image, TextInput, Alert, Linking, Platform } from "react-native";
 import styles, { colors } from "./styles";
 
 const Stack = createNativeStackNavigator();
@@ -818,7 +818,26 @@ function Contact({ navigation }) {
                 shadowRadius: 24,
                 elevation: 8,
               }}
-              onPress={() => Linking.openURL("resume.pdf")}
+              onPress={() => {
+                if (Platform.OS === 'web') {
+                  // For web, try multiple approaches
+                  try {
+                    // First try direct path to the computer science resume
+                    const link = document.createElement('a');
+                    link.href = './Razeen Samir Comp Sci Resume UPDATED.pdf';
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
+                    link.download = 'Razeen_Samir_Computer_Science_Resume.pdf';
+                    link.click();
+                  } catch (error) {
+                    // Fallback to window.open
+                    window.open('./Razeen Samir Comp Sci Resume UPDATED.pdf', '_blank');
+                  }
+                } else {
+                  // For mobile, use Linking
+                  Linking.openURL('file:///assets/Razeen Samir Comp Sci Resume UPDATED.pdf');
+                }
+              }}
             >
               <Text style={{
                 color: '#e7edf7',
