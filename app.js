@@ -71,7 +71,29 @@ function Home({ navigation }) {
             Currently integrating a Vive Focus 3 pipeline with National Instruments, and shipping a sports-tech app with React Native. Open to Summer '26 SWE (systems/XR/product).
           </Text>
           <View style={[styles.row, { marginTop: 18 }]}>
-            <TouchableOpacity style={[styles.button, styles.buttonPrimary]}>
+            <TouchableOpacity 
+              style={[styles.button, styles.buttonPrimary]}
+              onPress={() => {
+                if (Platform.OS === 'web') {
+                  // For web, try multiple approaches
+                  try {
+                    // First try direct path to the computer science resume
+                    const link = document.createElement('a');
+                    link.href = './Razeen Samir Comp Sci Resume UPDATED.pdf';
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
+                    link.download = 'Razeen_Samir_Computer_Science_Resume.pdf';
+                    link.click();
+                  } catch (error) {
+                    // Fallback to window.open
+                    window.open('./Razeen Samir Comp Sci Resume UPDATED.pdf', '_blank');
+                  }
+                } else {
+                  // For mobile, use Linking
+                  Linking.openURL('file:///assets/Razeen Samir Comp Sci Resume UPDATED.pdf');
+                }
+              }}
+            >
               <Text style={styles.buttonTextPrimary}>View Résumé</Text>
             </TouchableOpacity>
             <TouchableOpacity 
@@ -301,45 +323,336 @@ function Experience({ navigation }) {
     <ScrollView style={styles.container}>
       <View style={styles.contentContainer}>
         <NavHeader navigation={navigation} />
-        {/* Hero Section */}
-        <View style={[styles.hero, { marginBottom: 22 }]}>
-          <Text style={styles.kicker}>Résumé</Text>
-          <Text style={styles.h1}>Experience</Text>
-          <Text style={styles.lead}>
-            Quantified highlights across research, product, and media.
+        {/* Hero Section with Gotham Glow */}
+        <View style={{
+          position: 'relative',
+          paddingVertical: 60,
+          marginBottom: 26,
+        }}>
+          {/* Glow Effect with Bat Symbol */}
+          <View style={{
+            position: 'absolute',
+            right: '5%',
+            top: -60,
+            width: 420,
+            height: 420,
+            borderRadius: 210,
+            backgroundColor: 'rgba(255,213,74,0.18)',
+            opacity: 0.8,
+            transform: [{ scale: 0.4 }],
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+            {/* Bat Symbol */}
+            <Text style={{
+              color: '#000000',
+              fontSize: 80,
+              fontWeight: 'bold',
+              textAlign: 'center',
+            }}>
+              🦇
+            </Text>
+          </View>
+          
+          <Text style={{
+            letterSpacing: 0.3,
+            textTransform: 'uppercase',
+            fontWeight: '700',
+            color: '#ffd54a',
+            fontSize: 12,
+            marginBottom: 8,
+          }}>
+            My
+          </Text>
+          <Text style={{
+            marginVertical: 12,
+            fontSize: 42,
+            lineHeight: 46,
+            fontWeight: 'bold',
+            color: '#d6dde7',
+            marginBottom: 16,
+          }}>
+            Experience
+          </Text>
+          <Text style={{
+            marginTop: 10,
+            color: '#93a1b5',
+            maxWidth: 640,
+            fontSize: 16,
+            lineHeight: 24,
+          }}>
+            So you can get to know me better.
           </Text>
         </View>
 
-        {/* Timeline Section */}
-        <View style={[styles.card, styles.cardPad]}>
-          <View style={styles.timeline}>
-            {/* Research Intern */}
-            <View style={styles.timelineItem}>
-              <Text style={styles.timelineDate}>May 2025 — Present</Text>
-              <Text style={styles.timelineRole}>Research Intern — University of Washington</Text>
-              <View style={styles.bulletList}>
-                <Text style={styles.bulletItem}>• Built Unity ↔ NI-DAQ data path; achieved timestamp alignment ±[X] ms at [Y] Hz.</Text>
-                <Text style={styles.bulletItem}>• Replaced Arduino stack with NI PCIe-6321 + BNC-2110; reduced setup time by [Z]%.</Text>
-                <Text style={styles.bulletItem}>• Developed calibration tooling; automated sanity checks for drift.</Text>
+        {/* Timeline Section with Gotham Style */}
+        <View style={{
+          position: 'relative',
+          marginTop: 26,
+          paddingLeft: 36,
+        }}>
+          {/* Timeline Line */}
+          <View style={{
+            position: 'absolute',
+            left: 12,
+            top: 0,
+            bottom: 0,
+            width: 2,
+            backgroundColor: 'rgba(255,213,74,0.8)',
+          }} />
+
+          {/* Research Intern Card */}
+          <View style={{
+            position: 'relative',
+            overflow: 'hidden',
+            borderWidth: 1,
+            borderColor: 'rgba(240,196,60,0.35)',
+            borderRadius: 16,
+            backgroundColor: 'rgba(13,17,22,0.70)',
+            padding: 20,
+            marginVertical: 18,
+            shadowColor: '#f0c43c',
+            shadowOffset: { width: 0, height: 10 },
+            shadowOpacity: 0.25,
+            shadowRadius: 24,
+            elevation: 8,
+          }}>
+            {/* Top Glow Bar */}
+            <View style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              height: 2,
+              backgroundColor: 'rgba(255,213,74,0.6)',
+            }} />
+            
+            <View style={{ flexDirection: 'row', gap: 14, alignItems: 'flex-start' }}>
+              {/* Icon */}
+              <View style={{
+                flex: 0,
+                marginTop: 2,
+                padding: 10,
+                borderRadius: 12,
+                borderWidth: 1,
+                borderColor: '#252f3b',
+                backgroundColor: 'rgba(255,213,74,0.08)',
+                justifyContent: 'center',
+                alignItems: 'center',
+                width: 42,
+                height: 42,
+              }}>
+                <Text style={{ color: '#ffd54a', fontSize: 16 }}>🔬</Text>
+              </View>
+              
+              <View style={{ flex: 1 }}>
+                <Text style={{
+                  fontSize: 20,
+                  fontWeight: '800',
+                  color: '#d6dde7',
+                  marginBottom: 4,
+                }}>
+                  Research Intern — VR Kojima Lab
+                </Text>
+                <Text style={{
+                  color: '#93a1b5',
+                  fontSize: 15,
+                  marginBottom: 6,
+                }}>
+                  University of Washington
+                </Text>
+                <Text style={{
+                  color: '#93a1b5',
+                  fontSize: 13,
+                  marginBottom: 12,
+                }}>
+                  May 2025 – Present • Seattle, WA
+                </Text>
+                
+                <View style={{ marginTop: 12 }}>
+                  <Text style={styles.bulletItem}>• Assisting in the development of a VR-based experimental platform to study covert saccades as a compensatory mechanism for vestibular disorders.</Text>
+                  <Text style={styles.bulletItem}>• Utilizing Vive Focus 3, CED1401, and National Instruments DAQ hardware, replacing the previous Arduino setup, to collect synchronized real-time eye and head movement data.</Text>
+                  <Text style={styles.bulletItem}>• Building Unity integrations with National Instruments APIs and custom wrappers, while also writing scripts in C++ and C# to enable precise data acquisition and signal communication.</Text>
+                  <Text style={styles.bulletItem}>• Troubleshooting device connectivity, signal flow, and calibration issues to ensure reliable experimental performance.</Text>
+                </View>
+                
+                {/* Tech Badges */}
+                <View style={{ marginTop: 16, flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
+                  <View style={{
+                    paddingHorizontal: 10,
+                    paddingVertical: 6,
+                    borderWidth: 1,
+                    borderColor: '#3a4656',
+                    borderRadius: 999,
+                    backgroundColor: 'rgba(255,255,255,0.02)',
+                  }}>
+                    <Text style={{ color: '#d6dde7', fontSize: 12 }}>Unity</Text>
+                  </View>
+                  <View style={{
+                    paddingHorizontal: 10,
+                    paddingVertical: 6,
+                    borderWidth: 1,
+                    borderColor: '#3a4656',
+                    borderRadius: 999,
+                    backgroundColor: 'rgba(255,255,255,0.02)',
+                  }}>
+                    <Text style={{ color: '#d6dde7', fontSize: 12 }}>C#</Text>
+                  </View>
+                  <View style={{
+                    paddingHorizontal: 10,
+                    paddingVertical: 6,
+                    borderWidth: 1,
+                    borderColor: '#3a4656',
+                    borderRadius: 999,
+                    backgroundColor: 'rgba(255,255,255,0.02)',
+                  }}>
+                    <Text style={{ color: '#d6dde7', fontSize: 12 }}>C++</Text>
+                  </View>
+                  <View style={{
+                    paddingHorizontal: 10,
+                    paddingVertical: 6,
+                    borderWidth: 1,
+                    borderColor: '#3a4656',
+                    borderRadius: 999,
+                    backgroundColor: 'rgba(255,255,255,0.02)',
+                  }}>
+                    <Text style={{ color: '#d6dde7', fontSize: 12 }}>Vive Focus 3</Text>
+                  </View>
+                  <View style={{
+                    paddingHorizontal: 10,
+                    paddingVertical: 6,
+                    borderWidth: 1,
+                    borderColor: '#3a4656',
+                    borderRadius: 999,
+                    backgroundColor: 'rgba(255,255,255,0.02)',
+                  }}>
+                    <Text style={{ color: '#d6dde7', fontSize: 12 }}>NI-DAQmx</Text>
+                  </View>
+                </View>
               </View>
             </View>
+          </View>
 
-            {/* Video Editing Intern */}
-            <View style={styles.timelineItem}>
-              <Text style={styles.timelineDate}>2021 — 2024</Text>
-              <Text style={styles.timelineRole}>Video Editing Intern — City of Kirkland</Text>
-              <View style={styles.bulletList}>
-                <Text style={styles.bulletItem}>• Produced [N] videos; best post [M] views; avg retention [K]%.</Text>
-                <Text style={styles.bulletItem}>• Built repeatable edit pipeline (Premiere Pro + templates) cutting turnaround by [T]%.</Text>
+          {/* CSEED Buildspace Card */}
+          <View style={{
+            position: 'relative',
+            overflow: 'hidden',
+            borderWidth: 1,
+            borderColor: 'rgba(240,196,60,0.35)',
+            borderRadius: 16,
+            backgroundColor: 'rgba(13,17,22,0.70)',
+            padding: 20,
+            marginVertical: 18,
+            shadowColor: '#f0c43c',
+            shadowOffset: { width: 0, height: 10 },
+            shadowOpacity: 0.25,
+            shadowRadius: 24,
+            elevation: 8,
+          }}>
+            {/* Top Glow Bar */}
+            <View style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              height: 2,
+              backgroundColor: 'rgba(255,213,74,0.6)',
+            }} />
+            
+            <View style={{ flexDirection: 'row', gap: 14, alignItems: 'flex-start' }}>
+              {/* Icon */}
+              <View style={{
+                flex: 0,
+                marginTop: 2,
+                padding: 10,
+                borderRadius: 12,
+                borderWidth: 1,
+                borderColor: '#252f3b',
+                backgroundColor: 'rgba(255,213,74,0.08)',
+                justifyContent: 'center',
+                alignItems: 'center',
+                width: 42,
+                height: 42,
+              }}>
+                <Text style={{ color: '#ffd54a', fontSize: 16 }}>🚀</Text>
               </View>
-            </View>
-
-            {/* Zeitoon Grill */}
-            <View style={styles.timelineItem}>
-              <Text style={styles.timelineDate}>2022 — Present</Text>
-              <Text style={styles.timelineRole}>Zeitoon Grill — Busser</Text>
-              <View style={styles.bulletList}>
-                <Text style={styles.bulletItem}>• High-throughput service shifts; teamwork, ops, and customer experience.</Text>
+              
+              <View style={{ flex: 1 }}>
+                <Text style={{
+                  fontSize: 20,
+                  fontWeight: '800',
+                  color: '#d6dde7',
+                  marginBottom: 4,
+                }}>
+                  Buildspace C•Seed Member — Athlete–Sponsor Match
+                </Text>
+                <Text style={{
+                  color: '#93a1b5',
+                  fontSize: 15,
+                  marginBottom: 6,
+                }}>
+                  Buildspace Cohort 3 (UW)
+                </Text>
+                <Text style={{
+                  color: '#93a1b5',
+                  fontSize: 13,
+                  marginBottom: 12,
+                }}>
+                  Apr 2025 – May 2025 • Remote / Seattle, WA
+                </Text>
+                
+                <View style={{ marginTop: 12 }}>
+                  <Text style={styles.bulletItem}>• Selected as a member of CSEED Buildspace Cohort 3, a University of Washington program where builders design and ship ambitious projects in six weeks, presenting them at Demo Day in front of UW CSE faculty and the public.</Text>
+                  <Text style={styles.bulletItem}>• Conceived, designed, and built a sports-tech mobile app that connects athletes with potential sponsors, enabling discovery, matching, and collaboration opportunities.</Text>
+                  <Text style={styles.bulletItem}>• Leveraged React Native and Firebase to create a scalable and user-friendly platform, while also utilizing the Expo framework for streamlined development and deployment.</Text>
+                  <Text style={styles.bulletItem}>• Built a dynamic matching system that allows athletes to swipe through potential sponsors, while also implementing a messaging feature to facilitate communication between athletes and sponsors.</Text>
+                  <Text style={styles.bulletItem}>• Developed a comprehensive user profile system that allows athletes to showcase their skills, experiences, and achievements, while also allowing sponsors to view and evaluate potential athletes.</Text>
+                </View>
+                
+                {/* Tech Badges */}
+                <View style={{ marginTop: 16, flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
+                  <View style={{
+                    paddingHorizontal: 10,
+                    paddingVertical: 6,
+                    paddingVertical: 6,
+                    borderWidth: 1,
+                    borderColor: '#3a4656',
+                    borderRadius: 999,
+                    backgroundColor: 'rgba(255,255,255,0.02)',
+                  }}>
+                    <Text style={{ color: '#d6dde7', fontSize: 12 }}>React Native</Text>
+                  </View>
+                  <View style={{
+                    paddingHorizontal: 10,
+                    paddingVertical: 6,
+                    borderWidth: 1,
+                    borderColor: '#3a4656',
+                    borderRadius: 999,
+                    backgroundColor: 'rgba(255,255,255,0.02)',
+                  }}>
+                    <Text style={{ color: '#d6dde7', fontSize: 12 }}>Expo</Text>
+                  </View>
+                  <View style={{
+                    paddingHorizontal: 10,
+                    paddingVertical: 6,
+                    borderWidth: 1,
+                    borderColor: '#3a4656',
+                    borderRadius: 999,
+                    backgroundColor: 'rgba(255,255,255,0.02)',
+                  }}>
+                    <Text style={{ color: '#d6dde7', fontSize: 12 }}>Firebase</Text>
+                  </View>
+                  <View style={{
+                    paddingHorizontal: 10,
+                    paddingVertical: 6,
+                    borderWidth: 1,
+                    borderColor: '#3a4656',
+                    borderRadius: 999,
+                    backgroundColor: 'rgba(255,255,255,0.02)',
+                  }}>
+                    <Text style={{ color: '#d6dde7', fontSize: 12 }}>TypeScript</Text>
+                  </View>
+                </View>
               </View>
             </View>
           </View>
@@ -349,35 +662,108 @@ function Experience({ navigation }) {
         <View style={styles.section}>
           <View style={styles.row}>
             {/* Leadership & Community */}
-            <View style={[styles.card, styles.cardPad, { flex: 1, minWidth: 250 }]}>
+            <View style={{
+              flex: 1,
+              minWidth: 250,
+              position: 'relative',
+              overflow: 'hidden',
+              borderWidth: 1,
+              borderColor: 'rgba(240,196,60,0.35)',
+              borderRadius: 16,
+              backgroundColor: 'rgba(13,17,22,0.70)',
+              padding: 20,
+              shadowColor: '#f0c43c',
+              shadowOffset: { width: 0, height: 10 },
+              shadowOpacity: 0.25,
+              shadowRadius: 24,
+              elevation: 8,
+            }}>
+              {/* Top Glow Bar */}
+              <View style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                height: 2,
+                backgroundColor: 'rgba(255,213,74,0.6)',
+              }} />
               <Text style={styles.h3}>Leadership & Community</Text>
               <View style={styles.bulletList}>
-                <Text style={styles.bulletItem}>• ASB Vice President — planned school-wide events.</Text>
-                <Text style={styles.bulletItem}>• MSA PR Officer — comms, collab events, social channels.</Text>
-                <Text style={styles.bulletItem}>• NHS — community service & mentorship.</Text>
+                <Text style={styles.bulletItem}>• Muslim Student Association PR Officer - communicating with the community, organizing events, running social media with over 4k followers. </Text>
+                <Text style={styles.bulletItem}>• CSEED Club - member and cohort 3 builder.</Text>
+                <Text style={styles.bulletItem}>• ASUW — student senator, proposed bills such as reduce parking bill and co-sponsored bill to ensure all students take a financial literacy course.</Text>
               </View>
             </View>
 
             {/* Education */}
-            <View style={[styles.card, styles.cardPad, { flex: 1, minWidth: 250 }]}>
+            <View style={{
+              flex: 1,
+              minWidth: 250,
+              position: 'relative',
+              overflow: 'hidden',
+              borderWidth: 1,
+              borderColor: 'rgba(240,196,60,0.35)',
+              borderRadius: 16,
+              backgroundColor: 'rgba(13,17,22,0.70)',
+              padding: 20,
+              shadowColor: '#f0c43c',
+              shadowOffset: { width: 0, height: 10 },
+              shadowOpacity: 0.25,
+              shadowRadius: 24,
+              elevation: 8,
+            }}>
+              {/* Top Glow Bar */}
+              <View style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                height: 2,
+                backgroundColor: 'rgba(255,213,74,0.6)',
+              }} />
               <Text style={styles.h3}>Education</Text>
               <Text style={styles.text}>
-                <Text style={styles.textBold}>University of Washington</Text> — B.S. Computer Science ('28)
+                <Text style={styles.textBold}>University of Washington</Text> — B.S. Computer Science ('27)
               </Text>
-              <Text style={styles.metaText}>Relevant: Systems, Data Structures, Linear Algebra, XR.</Text>
+              <Text style={styles.metaText}>Relevant: Data Structures, Hardware Software Interface, System and Software Tools,
+                Software Design and Implementation, Discrete Math, Foundations of Computing.</Text>
             </View>
 
             {/* Skills */}
-            <View style={[styles.card, styles.cardPad, { flex: 1, minWidth: 250 }]}>
+            <View style={{
+              flex: 1,
+              minWidth: 250,
+              position: 'relative',
+              overflow: 'hidden',
+              borderWidth: 1,
+              borderColor: 'rgba(240,196,60,0.35)',
+              borderRadius: 16,
+              backgroundColor: 'rgba(13,17,22,0.70)',
+              padding: 20,
+              shadowColor: '#f0c43c',
+              shadowOffset: { width: 0, height: 10 },
+              shadowOpacity: 0.25,
+              shadowRadius: 24,
+              elevation: 8,
+            }}>
+              {/* Top Glow Bar */}
+              <View style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                height: 2,
+                backgroundColor: 'rgba(255,213,74,0.6)',
+              }} />
               <Text style={styles.h3}>Skills</Text>
               <Text style={styles.metaText}>
-                <Text style={styles.textBold}>Languages:</Text> Python, Java, C/C++, JS/TS
+                <Text style={styles.textBold}>Languages:</Text> Java, C/C++, JS/TS, C#, HTML, CSS, Node.js
               </Text>
               <Text style={styles.metaText}>
-                <Text style={styles.textBold}>Tools:</Text> Unity, React Native, Firebase, NI-DAQmx
+                <Text style={styles.textBold}>Tools:</Text> Unity, React Native, Firebase, NI-DAQmx, Expo, PowerShell, Bash, Git, Vim, Linux, Terminal
               </Text>
               <Text style={styles.metaText}>
-                <Text style={styles.textBold}>Media:</Text> Premiere Pro, Photoshop
+                <Text style={styles.textBold}>Other:</Text> Microsoft Office, Adobe Suite, Canva, Leadership, Communication, Photography/Videography
               </Text>
             </View>
           </View>
