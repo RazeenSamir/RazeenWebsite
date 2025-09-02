@@ -24,12 +24,72 @@ function NavHeader({ navigation }) {
           <Text style={styles.brandText}>Razeen Samir</Text>
         </TouchableOpacity>
         <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
-          <TouchableOpacity onPress={() => handleNavigation("Home")} style={styles.button}><Text style={styles.buttonText}>Home</Text></TouchableOpacity>
-          <TouchableOpacity onPress={() => handleNavigation("Projects")} style={styles.button}><Text style={styles.buttonText}>Projects</Text></TouchableOpacity>
-          <TouchableOpacity onPress={() => handleNavigation("Experience")} style={styles.button}><Text style={styles.buttonText}>Experience</Text></TouchableOpacity>
-          <TouchableOpacity onPress={() => handleNavigation("Sports")} style={styles.button}><Text style={styles.buttonText}>Sports</Text></TouchableOpacity>
-          <TouchableOpacity onPress={() => handleNavigation("Other")} style={styles.button}><Text style={styles.buttonText}>Other</Text></TouchableOpacity>
-          <TouchableOpacity onPress={() => handleNavigation("Contact")} style={styles.button}><Text style={styles.buttonText}>Contact</Text></TouchableOpacity>
+          <TouchableOpacity onPress={() => handleNavigation("Home")} style={{
+            ...styles.button,
+            borderWidth: 1,
+            borderColor: 'rgba(240,196,60,0.35)',
+            backgroundColor: 'rgba(13,17,22,0.90)',
+            shadowColor: '#f0c43c',
+            shadowOffset: { width: 0, height: 4 },
+            shadowOpacity: 0.15,
+            shadowRadius: 12,
+            elevation: 4,
+          }}><Text style={styles.buttonText}>Home</Text></TouchableOpacity>
+          <TouchableOpacity onPress={() => handleNavigation("Projects")} style={{
+            ...styles.button,
+            borderWidth: 1,
+            borderColor: 'rgba(240,196,60,0.35)',
+            backgroundColor: 'rgba(13,17,22,0.90)',
+            shadowColor: '#f0c43c',
+            shadowOffset: { width: 0, height: 4 },
+            shadowOpacity: 0.15,
+            shadowRadius: 12,
+            elevation: 4,
+          }}><Text style={styles.buttonText}>Projects</Text></TouchableOpacity>
+          <TouchableOpacity onPress={() => handleNavigation("Experience")} style={{
+            ...styles.button,
+            borderWidth: 1,
+            borderColor: 'rgba(240,196,60,0.35)',
+            backgroundColor: 'rgba(13,17,22,0.90)',
+            shadowColor: '#f0c43c',
+            shadowOffset: { width: 0, height: 4 },
+            shadowOpacity: 0.15,
+            shadowRadius: 12,
+            elevation: 4,
+          }}><Text style={styles.buttonText}>Experience</Text></TouchableOpacity>
+          <TouchableOpacity onPress={() => handleNavigation("Sports")} style={{
+            ...styles.button,
+            borderWidth: 1,
+            borderColor: 'rgba(240,196,60,0.35)',
+            backgroundColor: 'rgba(13,17,22,0.90)',
+            shadowColor: '#f0c43c',
+            shadowOffset: { width: 0, height: 4 },
+            shadowOpacity: 0.15,
+            shadowRadius: 12,
+            elevation: 4,
+          }}><Text style={styles.buttonText}>Sports</Text></TouchableOpacity>
+          <TouchableOpacity onPress={() => handleNavigation("Other")} style={{
+            ...styles.button,
+            borderWidth: 1,
+            borderColor: 'rgba(240,196,60,0.35)',
+            backgroundColor: 'rgba(13,17,22,0.90)',
+            shadowColor: '#f0c43c',
+            shadowOffset: { width: 0, height: 4 },
+            shadowOpacity: 0.15,
+            shadowRadius: 12,
+            elevation: 4,
+          }}><Text style={styles.buttonText}>Other</Text></TouchableOpacity>
+          <TouchableOpacity onPress={() => handleNavigation("Contact")} style={{
+            ...styles.button,
+            borderWidth: 1,
+            borderColor: 'rgba(240,196,60,0.35)',
+            backgroundColor: 'rgba(13,17,22,0.90)',
+            shadowColor: '#f0c43c',
+            shadowOffset: { width: 0, height: 4 },
+            shadowOpacity: 0.15,
+            shadowRadius: 12,
+            elevation: 4,
+          }}><Text style={styles.buttonText}>Contact</Text></TouchableOpacity>
         </View>
       </View>
     </View>
@@ -44,11 +104,9 @@ function SiteFooter() {
         <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 16 }}>
           <Text style={styles.text}>© {year} Razeen Samir</Text>
           <View style={styles.meta}>
-            <TouchableOpacity onPress={() => Linking.openURL("https://github.com/")}><Text style={styles.metaText}>GitHub</Text></TouchableOpacity>
+            <TouchableOpacity onPress={() => Linking.openURL("https://github.com/RazeenSamir")}><Text style={styles.metaText}>GitHub</Text></TouchableOpacity>
             <Text style={styles.metaText}>•</Text>
-            <TouchableOpacity onPress={() => Linking.openURL("https://www.linkedin.com/")}><Text style={styles.metaText}>LinkedIn</Text></TouchableOpacity>
-            <Text style={styles.metaText}>•</Text>
-            <TouchableOpacity onPress={() => Linking.openURL("https://youtube.com/")}><Text style={styles.metaText}>YouTube</Text></TouchableOpacity>
+            <TouchableOpacity onPress={() => Linking.openURL("https://www.linkedin.com/in/razeen-samir-367748232/")}><Text style={styles.metaText}>LinkedIn</Text></TouchableOpacity>
           </View>
         </View>
       </View>
@@ -61,125 +119,195 @@ function Home({ navigation }) {
     <ScrollView style={styles.container}>
       <View style={styles.contentContainer}>
         <NavHeader navigation={navigation} />
-        {/* Hero Section */}
-        <View style={styles.hero}>
-          <Text style={styles.kicker}>CS @ UW • Systems & XR</Text>
-          <Text style={styles.h1}>
-            I build practical systems: <Text style={styles.textAccent}>VR eye-tracking</Text>, mobile apps, and visual stories.
-          </Text>
-          <Text style={styles.lead}>
-            Currently integrating a Vive Focus 3 pipeline with National Instruments, and shipping a sports-tech app with React Native. Open to Summer '26 SWE (systems/XR/product).
-          </Text>
-          <View style={[styles.row, { marginTop: 18 }]}>
-            <TouchableOpacity 
-              style={[styles.button, styles.buttonPrimary]}
-              onPress={() => {
-                if (Platform.OS === 'web') {
-                  // For web, try multiple approaches
-                  try {
-                    // First try direct path to the computer science resume
-                    const link = document.createElement('a');
-                    link.href = './Razeen Samir Comp Sci Resume UPDATED.pdf';
-                    link.target = '_blank';
-                    link.rel = 'noopener noreferrer';
-                    link.download = 'Razeen_Samir_Computer_Science_Resume.pdf';
-                    link.click();
-                  } catch (error) {
-                    // Fallback to window.open
-                    window.open('./Razeen Samir Comp Sci Resume UPDATED.pdf', '_blank');
+        {/* Hero Section with Batman Background */}
+        <View style={{
+          position: 'relative',
+          paddingVertical: 60,
+          marginBottom: 26,
+          borderRadius: 20,
+          overflow: 'hidden',
+          borderWidth: 1,
+          borderColor: 'rgba(240,196,60,0.35)',
+          backgroundColor: 'rgba(13,17,22,0.70)',
+          shadowColor: '#f0c43c',
+          shadowOffset: { width: 0, height: 10 },
+          shadowOpacity: 0.25,
+          shadowRadius: 24,
+          elevation: 8,
+        }}>
+          {/* Batman Background Image */}
+          <Image
+            source={require('./assets/batman background.jpg')}
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: -20,
+              right: -20,
+              bottom: -20,
+              width: '100%',
+              height: '200%',
+              opacity: 0.3,
+            }}
+            resizeMode="cover"
+          />
+          
+          {/* Dark Overlay for Text Readability */}
+          <View style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0,0,0,0.4)',
+          }} />
+          
+          {/* Content with Relative Positioning */}
+          <View style={{ position: 'relative', zIndex: 1, marginLeft: 40 }}>
+            <Text style={styles.kicker}>CS @ UW Seattle • Research @ UW Medicine</Text>
+            <Text style={styles.h1}>
+              I like building and making an impact. I also like keeping up with the lastest technologies.
+            </Text>
+            <Text style={styles.lead}>
+              Currently upgrading a VR Arduino based system for a research lab and also working on a sports-tech app with React Native. Looking for Summer '26 SWE roles.
+            </Text>
+            <View style={[styles.row, { marginTop: 18 }]}>
+              <TouchableOpacity 
+                style={[styles.button, styles.buttonPrimary]}
+                onPress={() => {
+                  if (Platform.OS === 'web') {
+                    // For web, try multiple approaches
+                    try {
+                      // First try direct path to the computer science resume
+                      const link = document.createElement('a');
+                      link.href = './Razeen Samir Comp Sci Resume UPDATED.pdf';
+                      link.target = '_blank';
+                      link.rel = 'noopener noreferrer';
+                      link.download = 'Razeen_Samir_Computer_Science_Resume.pdf';
+                      link.click();
+                    } catch (error) {
+                      // Fallback to window.open
+                      window.open('./Razeen Samir Comp Sci Resume UPDATED.pdf', '_blank');
+                    }
+                  } else {
+                    // For mobile, use Linking
+                    Linking.openURL('file:///assets/Razeen Samir Comp Sci Resume UPDATED.pdf');
                   }
-                } else {
-                  // For mobile, use Linking
-                  Linking.openURL('file:///assets/Razeen Samir Comp Sci Resume UPDATED.pdf');
-                }
-              }}
-            >
-              <Text style={styles.buttonTextPrimary}>View Résumé</Text>
-            </TouchableOpacity>
-            <TouchableOpacity 
-              style={[styles.button, styles.buttonGhost]}
-              onPress={() => navigation.navigate("Projects")}
-            >
-              <Text style={styles.buttonText}>See Projects</Text>
-            </TouchableOpacity>
+                }}
+              >
+                <Text style={styles.buttonTextPrimary}>View Résumé</Text>
+              </TouchableOpacity>
+              <TouchableOpacity 
+                style={{
+                  ...styles.button,
+                  borderWidth: 1,
+                  borderColor: 'rgba(240,196,60,0.35)',
+                  backgroundColor: 'rgba(13,17,22,0.90)',
+                  shadowColor: '#f0c43c',
+                  shadowOffset: { width: 0, height: 4 },
+                  shadowOpacity: 0.15,
+                  shadowRadius: 12,
+                  elevation: 4,
+                }}
+                onPress={() => navigation.navigate("Projects")}
+              >
+                <Text style={styles.buttonText}>See Projects</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
 
-        {/* Featured Projects Grid */}
+        {/* About Me and Image Grid */}
         <View style={styles.section}>
           <View style={styles.row}>
-            {/* VR Eye-Tracking Project */}
-            <View style={[styles.card, styles.cardPad, { flex: 1, minWidth: 250 }]}>
-              <View style={styles.badge}>
-                <Text style={styles.badgeText}>Featured</Text>
+            {/* About Me Card */}
+            <View style={{
+              flex: 1,
+              minWidth: 400,
+              minHeight: 350,
+              position: 'relative',
+              overflow: 'hidden',
+              borderWidth: 1,
+              borderColor: 'rgba(240,196,60,0.35)',
+              borderRadius: 16,
+              backgroundColor: 'rgba(13,17,22,0.70)',
+              padding: 20,
+              shadowColor: '#f0c43c',
+              shadowOffset: { width: 0, height: 10 },
+              shadowOpacity: 0.25,
+              shadowRadius: 24,
+              elevation: 8,
+            }}>
+              {/* Top Glow Bar */}
+              <View style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                height: 2,
+                backgroundColor: 'rgba(255,213,74,0.6)',
+              }} />
+              <View style={[styles.badge, { 
+                paddingHorizontal: 16, 
+                paddingVertical: 8,
+                marginBottom: 20 
+              }]}>
+                <Text style={[styles.badgeText, { fontSize: 18, fontWeight: '700' }]}>About Me</Text>
               </View>
-              <Text style={styles.h3}>VR Eye-Tracking + NI</Text>
-              <Text style={[styles.lead, { fontSize: 15 }]}>
-                Unity ↔ NI-DAQ pipeline enabling synchronized target/eye signals for a vestibular study.
+
+              
+              <Text style={{
+                fontSize: 32,
+                lineHeight: 28,
+                color: '#d6dde7',
+                marginBottom: 30,
+                textAlign: 'left',
+                fontWeight: '500',
+              }}>
+                <Text style={{ color: '#ffd54a', fontWeight: '700' }}>Hello!</Text> My name is <Text style={{ color: '#ffd54a', fontWeight: '700' }}>Razeen</Text>, and I'm studying computer science at the <Text style={{ color: '#ffd54a', fontWeight: '700' }}>University of Washington</Text>. As you can tell, I'm a fan of <Text style={{ color: '#ffd54a', fontWeight: '700' }}>Batman</Text>, which is why the theme of this website is black and yellow.
+              </Text>
+              
+              <Text style={{
+                fontSize: 32,
+                lineHeight: 28,
+                color: '#d6dde7',
+                marginBottom: 30,
+                textAlign: 'left',
+                fontWeight: '500',
+              }}>
+                Outside of school, I'm a huge <Text style={{ color: '#ffd54a', fontWeight: '700' }}>sports fan</Text> and love to play and watch sports, specifically American Football - Go Hawks! Check the sports tab for some of my takes (spoiler alert: I'm a Seahawks fan). If you want to contact me, click the contact tab and you should be able to send me an email.
+              </Text>
+              
+              <Text style={{
+                fontSize: 32,
+                lineHeight: 28,
+                color: '#d6dde7',
+                marginBottom: 30,
+                textAlign: 'left',
+                fontWeight: '500',
+              }}>
+                As for why I like computer science, what really drew me to it was the ability to <Text style={{ color: '#ffd54a', fontWeight: '700' }}>build and make an impact</Text>. It's no secret that computer science is applicable in every field, whether that is athletics, medicine, or anything else. As a result, I love learning about new technologies and applying them to real-world problems.
               </Text>
               <View style={styles.meta}>
-                <Text style={styles.metaText}>Unity</Text>
+                <Text style={styles.metaText}>Computer Science</Text>
                 <Text style={styles.metaText}>•</Text>
-                <Text style={styles.metaText}>NI-DAQmx</Text>
+                <Text style={styles.metaText}>Research</Text>
                 <Text style={styles.metaText}>•</Text>
-                <Text style={styles.metaText}>Vive Focus 3</Text>
+                <Text style={styles.metaText}>Innovation</Text>
               </View>
-              <View style={styles.marginTop}>
-                <TouchableOpacity 
-                  style={styles.button}
-                  onPress={() => navigation.navigate("Projects")}
-                >
-                  <Text style={styles.buttonText}>Read case study →</Text>
-                </TouchableOpacity>
-              </View>
+
             </View>
 
-            {/* Athlete-Sponsor App */}
-            <View style={[styles.card, styles.cardPad, { flex: 1, minWidth: 250 }]}>
-              <View style={styles.badge}>
-                <Text style={styles.badgeText}>Mobile</Text>
-              </View>
-              <Text style={styles.h3}>Athlete-Sponsor App</Text>
-              <Text style={[styles.lead, { fontSize: 15 }]}>
-                React Native MVP: profiles, matching, and messaging.
-              </Text>
-              <View style={styles.meta}>
-                <Text style={styles.metaText}>Expo</Text>
-                <Text style={styles.metaText}>•</Text>
-                <Text style={styles.metaText}>Firestore</Text>
-              </View>
-              <View style={styles.marginTop}>
-                <TouchableOpacity 
-                  style={styles.button}
-                  onPress={() => navigation.navigate("Projects")}
-                >
-                  <Text style={styles.buttonText}>See details →</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-
-            {/* City of Kirkland */}
-            <View style={[styles.card, styles.cardPad, { flex: 1, minWidth: 250 }]}>
-              <View style={styles.badge}>
-                <Text style={styles.badgeText}>Media</Text>
-              </View>
-              <Text style={styles.h3}>City of Kirkland</Text>
-              <Text style={[styles.lead, { fontSize: 15 }]}>
-                Produced and edited videos; highlight reel and stats.
-              </Text>
-              <View style={styles.meta}>
-                <Text style={styles.metaText}>Premiere Pro</Text>
-                <Text style={styles.metaText}>•</Text>
-                <Text style={styles.metaText}>Photoshop</Text>
-              </View>
-              <View style={styles.marginTop}>
-                <TouchableOpacity 
-                  style={styles.button}
-                  onPress={() => navigation.navigate("Projects")}
-                >
-                  <Text style={styles.buttonText}>Watch reel →</Text>
-                </TouchableOpacity>
-              </View>
+            {/* Image Display */}
+            <View style={{ flex: 1, minWidth: 400, alignItems: 'center', justifyContent: 'center' }}>
+              <Image
+                source={require('./assets/image0.jpg')}
+                style={{
+                  width: '200%',
+                  height: 700,
+                  borderRadius: 16,
+                }}
+                resizeMode="contain"
+              />
             </View>
           </View>
         </View>
