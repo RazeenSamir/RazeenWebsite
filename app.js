@@ -966,58 +966,169 @@ function Sports({ navigation }) {
     <ScrollView style={styles.container}>
       <View style={styles.contentContainer}>
         <NavHeader navigation={navigation} />
-        {/* Hero Section */}
-        <View style={[styles.hero, { marginBottom: 22 }]}>
-          <Text style={styles.kicker}>Sports & Tech</Text>
-          <Text style={styles.h1}>Athlete-Sponsor ideas, training notes, and hot takes.</Text>
+                {/* Hero Section with Glow Effect */}
+        <View style={{
+          position: 'relative',
+          overflow: 'hidden',
+          marginVertical: 20,
+          borderRadius: 20,
+          backgroundColor: 'rgba(13,17,22,0.70)',
+          borderWidth: 1,
+          borderColor: 'rgba(240,196,60,0.35)',
+          padding: 30,
+          shadowColor: '#f0c43c',
+          shadowOffset: { width: 0, height: 10 },
+          shadowOpacity: 0.25,
+          shadowRadius: 24,
+          elevation: 8,
+        }}>
+          {/* Top Glow Bar */}
+          <View style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            height: 2,
+            backgroundColor: 'rgba(255,213,74,0.6)',
+          }} />
+          
+          <Text style={styles.kicker}>Sports</Text>
+          <Text style={styles.h1}>My favorite hobby: Sports</Text>
           <Text style={styles.lead}>
-            Stuff I'm building and thinking about in sports performance and fan tech.
+            I'm a big fan of sports, whether it's playing them or watching them. Usually, computer science and sports don't mesh super well, but I'd like to say that is not the case for me.
+            My favorite sports are football and basketball, as I used to play football and still play basketball from time to time. I've also been getting into F1 lately.
           </Text>
         </View>
 
         {/* Sports Grid */}
         <View style={styles.row}>
-          {/* Athlete-Sponsor Matching */}
-          <View style={[styles.card, styles.cardPad, { flex: 1, minWidth: 250 }]}>
+          {/* Football */}
+          <View style={{
+            position: 'relative',
+            overflow: 'hidden',
+            flex: 1,
+            minWidth: 250,
+            borderWidth: 1,
+            borderColor: 'rgba(240,196,60,0.35)',
+            borderRadius: 16,
+            backgroundColor: 'rgba(13,17,22,0.70)',
+            padding: 20,
+            marginVertical: 18,
+            shadowColor: '#f0c43c',
+            shadowOffset: { width: 0, height: 10 },
+            shadowOpacity: 0.25,
+            shadowRadius: 24,
+            elevation: 8,
+          }}>
+            {/* Top Glow Bar */}
+            <View style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              height: 2,
+              backgroundColor: 'rgba(255,213,74,0.6)',
+            }} />
+            
             <View style={styles.badge}>
-              <Text style={styles.badgeText}>Product</Text>
+              <Text style={styles.badgeText}>Football</Text>
             </View>
-            <Text style={styles.h3}>Athlete-Sponsor Matching</Text>
+            <Text style={styles.h3}>Football</Text>
             <Text style={[styles.lead, { fontSize: 15 }]}>
-              Consumer app connecting athletes with sponsors; matching logic and messaging prototype.
+              I played football all throughout high school, so that's what made me like the sport. I also love playing fantasy football, which is basically when you draft real life players
+              and assemble a team of them, and go against other similarly assembled teams in a league of friends. Watching the NFL is another thing I enjoy, and my favorite team is obviously
+              the Seattle Seahawks. Going to the University of Washington, our football team is pretty good, so I like going to their games as well. Michael Penix Jr is my favorite NFL player, as he is a UW alum.
             </Text>
             <View style={styles.meta}>
-              <Text style={styles.metaText}>React Native</Text>
+              <Text style={styles.metaText}>Seahawks</Text>
               <Text style={styles.metaText}>•</Text>
-              <Text style={styles.metaText}>Firestore</Text>
+              <Text style={styles.metaText}>Michael Penix Jr</Text>
             </View>
           </View>
 
-          {/* Weekly Log */}
-          <View style={[styles.card, styles.cardPad, { flex: 1, minWidth: 250 }]}>
+          {/* Basketball */}
+          <View style={{
+            position: 'relative',
+            overflow: 'hidden',
+            flex: 1,
+            minWidth: 250,
+            borderWidth: 1,
+            borderColor: 'rgba(240,196,60,0.35)',
+            borderRadius: 16,
+            backgroundColor: 'rgba(13,17,22,0.70)',
+            padding: 20,
+            marginVertical: 18,
+            shadowColor: '#f0c43c',
+            shadowOffset: { width: 0, height: 10 },
+            shadowOpacity: 0.25,
+            shadowRadius: 24,
+            elevation: 8,
+          }}>
+            {/* Top Glow Bar */}
+            <View style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              height: 2,
+              backgroundColor: 'rgba(255,213,74,0.6)',
+            }} />
+            
             <View style={styles.badge}>
-              <Text style={styles.badgeText}>Training</Text>
+              <Text style={styles.badgeText}>Basketball</Text>
             </View>
-            <Text style={styles.h3}>Weekly Log</Text>
+            <Text style={styles.h3}>Basketball</Text>
             <Text style={[styles.lead, { fontSize: 15 }]}>
-              Basketball/conditioning highlights and progress markers.
+              Basketball is the sport I have been playing the longest, since I was 9 years old. Unlike football, I am still able to play it now, and I try to play whenever I have the time. 
+              Unfortunately Seattle's basketball team relocated to Oklahoma City a long time ago, but my favorite team is the Los Angeles Lakers and Kobe is my favorite player.
             </Text>
             <View style={styles.meta}>
-              <Text style={styles.metaText}>Updated monthly</Text>
+              <Text style={styles.metaText}>Lakers</Text>
+              <Text style={styles.metaText}>•</Text>
+              <Text style={styles.metaText}>Kobe Bryant</Text>
             </View>
           </View>
 
-          {/* Season Predictions */}
-          <View style={[styles.card, styles.cardPad, { flex: 1, minWidth: 250 }]}>
+          {/* Formula 1 */}
+          <View style={{
+            position: 'relative',
+            overflow: 'hidden',
+            flex: 1,
+            minWidth: 250,
+            borderWidth: 1,
+            borderColor: 'rgba(240,196,60,0.35)',
+            borderRadius: 16,
+            backgroundColor: 'rgba(13,17,22,0.70)',
+            padding: 20,
+            marginVertical: 18,
+            shadowColor: '#f0c43c',
+            shadowOffset: { width: 0, height: 10 },
+            shadowOpacity: 0.25,
+            shadowRadius: 24,
+            elevation: 8,
+          }}>
+            {/* Top Glow Bar */}
+            <View style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              height: 2,
+              backgroundColor: 'rgba(255,213,74,0.6)',
+            }} />
+            
             <View style={styles.badge}>
-              <Text style={styles.badgeText}>Takes</Text>
+              <Text style={styles.badgeText}>Formula 1</Text>
             </View>
-            <Text style={styles.h3}>Season Predictions</Text>
+            <Text style={styles.h3}>Formula 1</Text>
             <Text style={[styles.lead, { fontSize: 15 }]}>
-              A running list of predictions; receipts kept.
+              I've only gotten into this sport recently. In fact, I really only became aware of this shortly before the F1 movie featuring Brad Pitt was released. My favorite F1 team is Ferrari,
+              and my favorite driver is Lewis Hamilton. I would love to go to an F1 race, but I can't even watch most of them because they're at 6 AM usually.
             </Text>
             <View style={styles.meta}>
-              <Text style={styles.metaText}>Opinions</Text>
+              <Text style={styles.metaText}>Racing</Text>
+              <Text style={styles.metaText}>•</Text>
+              <Text style={styles.metaText}>Ferrari</Text>
             </View>
           </View>
         </View>
@@ -1042,17 +1153,27 @@ function Contact({ navigation }) {
           position: 'relative',
           overflow: 'hidden',
           marginVertical: 20,
-          borderRadius: 18,
-          backgroundColor: '#0d1116',
+          borderRadius: 20,
+          backgroundColor: 'rgba(13,17,22,0.70)',
           borderWidth: 1,
-          borderColor: '#2a3442',
+          borderColor: 'rgba(240,196,60,0.35)',
           height: 400,
-          shadowColor: '#000',
-          shadowOffset: { width: 0, height: 8 },
-          shadowOpacity: 0.45,
-          shadowRadius: 28,
+          shadowColor: '#f0c43c',
+          shadowOffset: { width: 0, height: 10 },
+          shadowOpacity: 0.25,
+          shadowRadius: 24,
           elevation: 8,
         }}>
+          {/* Top Glow Bar */}
+          <View style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            height: 2,
+            backgroundColor: 'rgba(255,213,74,0.6)',
+            zIndex: 2,
+          }} />
           {/* Gotham Cityscape Background */}
           <View style={{
             position: 'absolute',
@@ -1172,20 +1293,31 @@ function Contact({ navigation }) {
         <View style={styles.row}>
           {/* Social Links Card */}
           <View style={{
+            position: 'relative',
+            overflow: 'hidden',
             flex: 1,
             minWidth: 300,
-            backgroundColor: '#141a22',
+            backgroundColor: 'rgba(13,17,22,0.70)',
             borderWidth: 1,
-            borderColor: '#2a3442',
+            borderColor: 'rgba(240,196,60,0.35)',
             borderRadius: 18,
             padding: 18,
             minHeight: 180,
-            shadowColor: '#000',
-            shadowOffset: { width: 0, height: 8 },
-            shadowOpacity: 0.45,
-            shadowRadius: 28,
+            shadowColor: '#f0c43c',
+            shadowOffset: { width: 0, height: 10 },
+            shadowOpacity: 0.25,
+            shadowRadius: 24,
             elevation: 8,
           }}>
+            {/* Top Glow Bar */}
+            <View style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              height: 2,
+              backgroundColor: 'rgba(255,213,74,0.6)',
+            }} />
             <Text style={{
               marginBottom: 6,
               fontSize: 18,
@@ -1268,20 +1400,31 @@ function Contact({ navigation }) {
 
           {/* Resume Card */}
           <View style={{
+            position: 'relative',
+            overflow: 'hidden',
             flex: 1,
             minWidth: 300,
-            backgroundColor: '#141a22',
+            backgroundColor: 'rgba(13,17,22,0.70)',
             borderWidth: 1,
-            borderColor: '#2a3442',
+            borderColor: 'rgba(240,196,60,0.35)',
             borderRadius: 18,
             padding: 18,
             minHeight: 180,
-            shadowColor: '#000',
-            shadowOffset: { width: 0, height: 8 },
-            shadowOpacity: 0.45,
-            shadowRadius: 28,
+            shadowColor: '#f0c43c',
+            shadowOffset: { width: 0, height: 10 },
+            shadowOpacity: 0.25,
+            shadowRadius: 24,
             elevation: 8,
           }}>
+            {/* Top Glow Bar */}
+            <View style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              height: 2,
+              backgroundColor: 'rgba(255,213,74,0.6)',
+            }} />
             <Text style={{
               marginBottom: 6,
               fontSize: 18,
