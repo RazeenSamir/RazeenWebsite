@@ -68,17 +68,6 @@ function NavHeader({ navigation }) {
             shadowRadius: 12,
             elevation: 4,
           }}><Text style={styles.buttonText}>Sports</Text></TouchableOpacity>
-          <TouchableOpacity onPress={() => handleNavigation("Other")} style={{
-            ...styles.button,
-            borderWidth: 1,
-            borderColor: 'rgba(240,196,60,0.35)',
-            backgroundColor: 'rgba(13,17,22,0.90)',
-            shadowColor: '#f0c43c',
-            shadowOffset: { width: 0, height: 4 },
-            shadowOpacity: 0.15,
-            shadowRadius: 12,
-            elevation: 4,
-          }}><Text style={styles.buttonText}>Other</Text></TouchableOpacity>
           <TouchableOpacity onPress={() => handleNavigation("Contact")} style={{
             ...styles.button,
             borderWidth: 1,
@@ -362,84 +351,154 @@ function Projects({ navigation }) {
     <ScrollView style={styles.container}>
       <View style={styles.contentContainer}>
         <NavHeader navigation={navigation} />
-        {/* Hero Section */}
-        <View style={[styles.hero, { marginBottom: 22 }]}>
-          <Text style={styles.kicker}>Selected Work</Text>
-          <Text style={styles.h1}>Projects</Text>
-          <Text style={styles.lead}>
-            A curated set of systems, apps, and media. Outcomes first, stacks second.
-          </Text>
+        {/* Hero Section with Batcave Background */}
+        <View style={{
+          position: 'relative',
+          paddingVertical: 60,
+          marginBottom: 26,
+          borderRadius: 20,
+          overflow: 'hidden',
+          borderWidth: 1,
+          borderColor: 'rgba(240,196,60,0.35)',
+          backgroundColor: 'rgba(13,17,22,0.70)',
+          shadowColor: '#f0c43c',
+          shadowOffset: { width: 0, height: 10 },
+          shadowOpacity: 0.25,
+          shadowRadius: 24,
+          elevation: 8,
+        }}>
+          {/* Batcave Background Image */}
+          <Image
+            source={require('./assets/batcave.jpg')}
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              width: '100%',
+              height: '100%',
+              opacity: 0.3,
+            }}
+            resizeMode="cover"
+          />
+          
+          {/* Dark Overlay for Text Readability */}
+          <View style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0,0,0,0.4)',
+          }} />
+          
+          {/* Content with Relative Positioning */}
+          <View style={{ position: 'relative', zIndex: 1, marginLeft: 40 }}>
+            <Text style={styles.kicker}>Selected Work</Text>
+            <Text style={styles.h1}>Projects</Text>
+            <Text style={styles.lead}>
+              Some of the projects I've worked on. For more of my projects, check my GitHub in the contact page or on the footer.
+            </Text>
+          </View>
         </View>
 
-        {/* Projects Grid */}
+                {/* Projects Grid */}
         <View style={styles.row}>
-          {/* VR Eye-Tracking Project */}
-          <View style={[styles.card, styles.cardPad, { flex: 1, minWidth: 250 }]}>
-            <View style={styles.badge}>
-              <Text style={styles.badgeText}>VR • Systems</Text>
-            </View>
-            <Text style={styles.h3}>VR Eye-Tracking + NI</Text>
-            <Text style={[styles.lead, { fontSize: 15 }]}>
-              Unity ↔ NI-DAQ timing alignment within ±[X] ms at [Y] Hz.
-            </Text>
-            <View style={styles.meta}>
-              <Text style={styles.metaText}>Unity</Text>
-              <Text style={styles.metaText}>•</Text>
-              <Text style={styles.metaText}>NI-DAQmx</Text>
-              <Text style={styles.metaText}>•</Text>
-              <Text style={styles.metaText}>Vive Focus 3</Text>
-            </View>
-            <View style={styles.marginTop}>
-              <TouchableOpacity style={styles.button}>
-                <Text style={styles.buttonText}>Case study →</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
+              {/* Athlete-Sponsor App */}
+              <View style={{
+                flex: 1,
+                minWidth: 400,
+                minHeight: 350,
+                position: 'relative',
+                overflow: 'hidden',
+                borderWidth: 1,
+                borderColor: 'rgba(240,196,60,0.35)',
+                borderRadius: 16,
+                backgroundColor: 'rgba(13,17,22,0.80)',
+                padding: 20,
+                shadowColor: '#f0c43c',
+                shadowOffset: { width: 0, height: 10 },
+                shadowOpacity: 0.25,
+                shadowRadius: 24,
+                elevation: 8,
+              }}>
+                {/* Top Glow Bar */}
+                <View style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: 2,
+                  backgroundColor: 'rgba(255,213,74,0.6)',
+                }} />
+                
+                <View style={styles.badge}>
+                  <Text style={styles.badgeText}>Mobile • Sports Tech</Text>
+                </View>
+                <Text style={styles.h3}>Athlete-Sponsor Matching App</Text>
+                <Text style={[styles.lead, { fontSize: 16, lineHeight: 24 }]}>
+                  A comprehensive mobile application that connects athletes with potential sponsors through a tinder-like swiping feature and seamless communication features. Built with React Native and Firebase, this app addresses the growing need for athletes to monetize their personal brand through sponsorships. Some pictures of the MVP can be seen on my LinkedIn post <a href="https://www.linkedin.com/feed/update/urn:li:activity:7334672480810242048/" style={{ color: '#ffd54a' }}>here</a>. Currently I am working on the algorithm for the matching system, improving the user interface, and adding a payment processing system so that contracts can be signed. My goal is to have it on the App Store and the Play Store, which is why I chose to use React Native.
+                 
+                  My reasoning behind making this was very simple. I had played high school football and understood the time commitment that goes into playing it, and could only imagine how much more time is needed to play in college. Now, when NIL became a thing recently, it strongly helped the top athletes, with some of them making multi million dollars and getting sponsorships from luxury companies such as Lamborghini. While that's great for them, the vast majority of college athletes don't make much money, and are spending the same amount of time training too. So, I thought it would make obtaining sponsorships significantly easier if there was a platform where athletes could connect with sponsors, tinder-style. My partner and I created this app with little
+                  no experience in mobile development, but through the help of the CSEED Buildspace program, we were able to create a MVP that is functional and hook up Firebase so that users could create actual profiles and swipe between athletes and sponsors.
+                </Text>
+                <View style={styles.meta}>
+                  <Text style={styles.metaText}>React Native</Text>
+                  <Text style={styles.metaText}>•</Text>
+                  <Text style={styles.metaText}>Expo</Text>
+                  <Text style={styles.metaText}>•</Text>
+                  <Text style={styles.metaText}>Firebase</Text>
+                  <Text style={styles.metaText}>•</Text>
+                  <Text style={styles.metaText}>TypeScript</Text>
+                </View>
+              </View>
 
-          {/* Athlete-Sponsor App */}
-          <View style={[styles.card, styles.cardPad, { flex: 1, minWidth: 250 }]}>
-            <View style={styles.badge}>
-              <Text style={styles.badgeText}>Mobile</Text>
+              {/* Cyphers Encryption Project */}
+              <View style={{
+                flex: 1,
+                minWidth: 400,
+                minHeight: 350,
+                position: 'relative',
+                overflow: 'hidden',
+                borderWidth: 1,
+                borderColor: 'rgba(240,196,60,0.35)',
+                borderRadius: 16,
+                backgroundColor: 'rgba(13,17,22,0.80)',
+                padding: 20,
+                shadowColor: '#f0c43c',
+                shadowOffset: { width: 0, height: 10 },
+                shadowOpacity: 0.25,
+                shadowRadius: 24,
+                elevation: 8,
+              }}>
+                {/* Top Glow Bar */}
+                <View style={{
+                  position: 'absolute',
+                  top: 0,
+                  height: 2,
+                  backgroundColor: 'rgba(255,213,74,0.6)',
+                }} />
+                
+                <View style={styles.badge}>
+                  <Text style={styles.badgeText}>Security • Cryptography</Text>
+                </View>
+                <Text style={styles.h3}>Cyphers</Text>
+                <Text style={[styles.lead, { fontSize: 16, lineHeight: 24 }]}>
+                 For my Custom Encryption Algorithms project, I developed a suite of classical encryption methods in Java to explore the foundations of secure communication and data protection. I implemented Substitution Cipher, Caesar Shift, and Caesar Key Cipher, then designed a hybrid cipher that layered these ciphers together to strengthen resistance against brute-force and pattern-based attacks. The project emphasized object oriented design principles, making it easy to extend with additional cryptographic methods in the future. Through this work, I gained hands-on experience with core cryptography concepts, algorithm design, and the balance between simplicity and security. You can view the GitHub repo <a href="https://github.com/RazeenSamir/Ciphers" style={{ color: '#ffd54a' }}>here</a>.
+                </Text>
+                
+                <View style={[styles.meta, { marginTop: 'auto', paddingTop: 20 }]}>
+                  <Text style={styles.metaText}>Java</Text>
+                  <Text style={styles.metaText}>•</Text>
+                  <Text style={styles.metaText}>Cryptography</Text>
+                  <Text style={styles.metaText}>•</Text>
+                  <Text style={styles.metaText}>Security</Text>
+                  <Text style={styles.metaText}>•</Text>
+                  <Text style={styles.metaText}>Algorithms</Text>
+                </View>
+              </View>
             </View>
-            <Text style={styles.h3}>Athlete-Sponsor App</Text>
-            <Text style={[styles.lead, { fontSize: 15 }]}>
-              MVP with profiles, swipe matching, and messaging; onboarded [N] testers.
-            </Text>
-            <View style={styles.meta}>
-              <Text style={styles.metaText}>React Native</Text>
-              <Text style={styles.metaText}>•</Text>
-              <Text style={styles.metaText}>Expo</Text>
-              <Text style={styles.metaText}>•</Text>
-              <Text style={styles.metaText}>Firestore</Text>
-            </View>
-            <View style={styles.marginTop}>
-              <TouchableOpacity style={styles.button}>
-                <Text style={styles.buttonText}>Read more →</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-
-          {/* City of Kirkland Video */}
-          <View style={[styles.card, styles.cardPad, { flex: 1, minWidth: 250 }]}>
-            <View style={styles.badge}>
-              <Text style={styles.badgeText}>Media</Text>
-            </View>
-            <Text style={styles.h3}>City of Kirkland Video</Text>
-            <Text style={[styles.lead, { fontSize: 15 }]}>
-              [N] videos produced; best post [M] views; avg retention [K]%.
-            </Text>
-            <View style={styles.meta}>
-              <Text style={styles.metaText}>Premiere Pro</Text>
-              <Text style={styles.metaText}>•</Text>
-              <Text style={styles.metaText}>Photoshop</Text>
-            </View>
-            <View style={styles.marginTop}>
-              <TouchableOpacity style={styles.button}>
-                <Text style={styles.buttonText}>Watch reel →</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        </View>
         <SiteFooter />
       </View>
     </ScrollView>
@@ -968,79 +1027,7 @@ function Sports({ navigation }) {
   );
 }
 
-function Other({ navigation }) {
-  return (
-    <ScrollView style={styles.container}>
-      <View style={styles.contentContainer}>
-        <NavHeader navigation={navigation} />
-        {/* Hero Section */}
-        <View style={[styles.hero, { marginBottom: 22 }]}>
-          <Text style={styles.kicker}>Side Quests</Text>
-          <Text style={styles.h1}>Other cool stuff about me</Text>
-          <Text style={styles.lead}>
-            A grab-bag of things I enjoy and build outside core work.
-          </Text>
-        </View>
 
-        {/* Other Grid */}
-        <View style={styles.row}>
-          {/* Photography */}
-          <View style={[styles.card, { flex: 1, minWidth: 250 }]}>
-            <Image
-              source={{ uri: "https://picsum.photos/640/360?random=1" }}
-              style={styles.cardImage}
-              resizeMode="cover"
-            />
-            <View style={styles.cardInnerPad}>
-              <Text style={styles.h3}>Photography</Text>
-              <Text style={[styles.lead, { fontSize: 15 }]}>Event and street shots; a few favorites.</Text>
-            </View>
-          </View>
-
-          {/* Design */}
-          <View style={[styles.card, { flex: 1, minWidth: 250 }]}>
-            <Image
-              source={{ uri: "https://picsum.photos/640/360?random=2" }}
-              style={styles.cardImage}
-              resizeMode="cover"
-            />
-            <View style={styles.cardInnerPad}>
-              <Text style={styles.h3}>Design</Text>
-              <Text style={[styles.lead, { fontSize: 15 }]}>Posters and thumbnails—Premiere + Photoshop workflow.</Text>
-            </View>
-          </View>
-
-          {/* Writing */}
-          <View style={[styles.card, { flex: 1, minWidth: 250 }]}>
-            <Image
-              source={{ uri: "https://picsum.photos/640/360?random=3" }}
-              style={styles.cardImage}
-              resizeMode="cover"
-            />
-            <View style={styles.cardInnerPad}>
-              <Text style={styles.h3}>Writing</Text>
-              <Text style={[styles.lead, { fontSize: 15 }]}>Short notes on systems, VR, and habits.</Text>
-            </View>
-          </View>
-
-          {/* Volunteering */}
-          <View style={[styles.card, { flex: 1, minWidth: 250 }]}>
-            <Image
-              source={{ uri: "https://picsum.photos/640/360?random=4" }}
-              style={styles.cardImage}
-              resizeMode="cover"
-            />
-            <View style={styles.cardInnerPad}>
-              <Text style={styles.h3}>Volunteering</Text>
-              <Text style={[styles.lead, { fontSize: 15 }]}>Community events and mentorship programs.</Text>
-            </View>
-          </View>
-        </View>
-        <SiteFooter />
-      </View>
-    </ScrollView>
-  );
-}
 
 function Contact({ navigation }) {
   const handleEmail = () => Linking.openURL("mailto:rsamir9@hotmail.com");
@@ -1413,11 +1400,7 @@ export default function App() {
             component={Sports} 
             options={{ title: "Sports" }}
           />
-          <Stack.Screen 
-            name="Other" 
-            component={Other} 
-            options={{ title: "Other" }}
-          />
+
           <Stack.Screen 
             name="Contact" 
             component={Contact} 
