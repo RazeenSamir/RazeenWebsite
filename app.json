@@ -1,4 +1,9 @@
 {
-  "name": "RazeenWebsite",
-  "slug": "RazeenWebsite"
+  "expo": {
+    "name": "RazeenWebsite",
+    "slug": "RazeenWebsite",
+    "experiments": {
+      "baseUrl": "/RazeenWebsite"
+    }
+  }
 }
