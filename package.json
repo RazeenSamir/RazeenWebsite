@@ -2,6 +2,7 @@
   "name": "razeenwebsite",
   "version": "1.0.0",
   "private": true,
+  "homepage": "https://razeensamir.github.io/RazeenWebsite",
   "main": "index.js",
   "scripts": {
     "start": "expo start",
