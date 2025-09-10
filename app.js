@@ -4,6 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { View, Text, Button, ScrollView, TouchableOpacity, Image, TextInput, Alert, Linking, Platform } from "react-native";
 import styles, { colors } from "./styles";
+import ErrorBoundary from "./ErrorBoundary";
 
 const Stack = createNativeStackNavigator();
 
@@ -1501,56 +1502,58 @@ function Contact({ navigation }) {
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <NavigationContainer>
-        <Stack.Navigator
-          initialRouteName="Home"
-          screenOptions={{
-            headerStyle: {
-              backgroundColor: colors.panel,
-            },
-            headerTintColor: colors.text,
-            headerTitleStyle: {
-              fontWeight: 'bold',
-            },
-            cardStyle: {
-              backgroundColor: colors.bg,
-            },
-          }}
-        >
-          <Stack.Screen 
-            name="Home" 
-            component={Home} 
-            options={{ title: "Razeen Samir" }}
-          />
-          <Stack.Screen 
-            name="About" 
-            component={About} 
-            options={{ title: "About" }}
-          />
-          <Stack.Screen 
-            name="Projects" 
-            component={Projects} 
-            options={{ title: "Projects" }}
-          />
-          <Stack.Screen 
-            name="Experience" 
-            component={Experience} 
-            options={{ title: "Experience" }}
-          />
-          <Stack.Screen 
-            name="Sports" 
-            component={Sports} 
-            options={{ title: "Sports" }}
-          />
+    <ErrorBoundary>
+      <View style={styles.container}>
+        <NavigationContainer>
+          <Stack.Navigator
+            initialRouteName="Home"
+            screenOptions={{
+              headerStyle: {
+                backgroundColor: colors.panel,
+              },
+              headerTintColor: colors.text,
+              headerTitleStyle: {
+                fontWeight: 'bold',
+              },
+              cardStyle: {
+                backgroundColor: colors.bg,
+              },
+            }}
+          >
+            <Stack.Screen 
+              name="Home" 
+              component={Home} 
+              options={{ title: "Razeen Samir" }}
+            />
+            <Stack.Screen 
+              name="About" 
+              component={About} 
+              options={{ title: "About" }}
+            />
+            <Stack.Screen 
+              name="Projects" 
+              component={Projects} 
+              options={{ title: "Projects" }}
+            />
+            <Stack.Screen 
+              name="Experience" 
+              component={Experience} 
+              options={{ title: "Experience" }}
+            />
+            <Stack.Screen 
+              name="Sports" 
+              component={Sports} 
+              options={{ title: "Sports" }}
+            />
 
-          <Stack.Screen 
-            name="Contact" 
-            component={Contact} 
-            options={{ title: "Contact" }}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </View>
+            <Stack.Screen 
+              name="Contact" 
+              component={Contact} 
+              options={{ title: "Contact" }}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </View>
+    </ErrorBoundary>
   );
 }

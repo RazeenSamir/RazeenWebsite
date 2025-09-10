@@ -2,6 +2,9 @@
   "expo": {
     "name": "RazeenWebsite",
     "slug": "RazeenWebsite",
+    "web": {
+      "bundler": "metro"
+    },
     "experiments": {
       "baseUrl": "/RazeenWebsite"
     }
