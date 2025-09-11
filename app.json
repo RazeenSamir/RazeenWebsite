@@ -4,9 +4,6 @@
     "slug": "RazeenWebsite",
     "web": {
       "bundler": "metro"
-    },
-    "experiments": {
-      "baseUrl": "/RazeenWebsite"
     }
   }
 }
