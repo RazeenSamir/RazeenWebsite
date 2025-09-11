@@ -61,5 +61,28 @@
     <!-- The root element for your Expo app. -->
     <div id="root"></div>
   <script src="./_expo/static/js/web/index-c4d308bad33c0dbc639bcf114df75502.js" defer></script>
+  <script>
+    const PDF_PATH = 'Razeen_Samir_Computer_Science_Resume.pdf';
+  
+    document.addEventListener('click', (e) => {
+      const el = e.target.closest('a, button');
+      if (!el) return;
+  
+      const text = (el.textContent || '').toLowerCase();
+  
+      // Match your two button labels ("View Résumé" and "Open PDF")
+      if (text.includes('résumé') || text.includes('resume') || text.includes('open pdf')) {
+        e.preventDefault();
+  
+        // Force a download
+        const a = document.createElement('a');
+        a.href = PDF_PATH;
+        a.setAttribute('download', 'Razeen_Samir_Computer_Science_Resume.pdf');
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      }
+    }, true);
+  </script>
 </body>
 </html>
